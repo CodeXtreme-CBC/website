@@ -29,9 +29,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${euclid.variable} antialiased`}
       >
-        <div className="scroll-container">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );

@@ -16,6 +16,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -58,7 +63,49 @@ h1, h2, h3, h4, h5, h6 {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
+
+.horizontal-scroll-container {
+  scroll-snap-type: x mandatory;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.horizontal-slide {
+  scroll-snap-align: start;
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.horizontal-scroll-container {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  flex: 0 0 100%;  
+}
+
+/* remove scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* Smooth scrolling for webkit browsers */
 .scroll-container::-webkit-scrollbar {

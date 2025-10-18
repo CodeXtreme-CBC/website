@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Hero from "@/app/ui/hero";
 import Footer from "@/app/ui/footer";
-import { heroSlides } from "./lib/data";
+import { heroSlides } from "@/app/lib/data";
+import WhatWeDo from "@/app/ui/what-we-do";
 
 export default function Home() {
   return (
-    <main>
+    <main className="scroll-container">
       <Hero
         slides={heroSlides}
         title="Discover and nurture talent. Build products. Power communities."
@@ -13,30 +14,7 @@ export default function Home() {
         <p>Through <strong>Power of Code</strong>, we develop high-impact tech solutions for people and communities across Africa.</p>"
         tip="Why We Exist"
       />
-
-      <section className="section-snap h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 to-purple-900 text-white">
-        <div className="text-center px-4 max-w-4xl">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">About CodeXtreme</h2>
-          <p className="text-lg md:text-xl mb-8 leading-relaxed">
-            We discover and nurture early tech talent and founders, helping them build and ship real products. 
-            Through Power of Code, we develop high-impact tech solutions for people and communities across Africa.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-400">50+</div>
-              <div className="text-sm text-gray-300">Projects Delivered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-400">100+</div>
-              <div className="text-sm text-gray-300">Developers Trained</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-400">5+</div>
-              <div className="text-sm text-gray-300">Years Experience</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhatWeDo />
 
       {/* Services Section */}
       <section className="section-snap h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 text-gray-900">
