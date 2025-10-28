@@ -1,100 +1,63 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function WhatWeDo() {
-  const sectionRef = useRef<HTMLElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const pointerOverRef = useRef(false);
+  const [current, setCurrent] = useState(0);
 
+  const slidesCount = 4;
+
+  // Scroll to active slide when current changes
   useEffect(() => {
-    const section = sectionRef.current;
     const container = containerRef.current;
-    if (!section || !container) return;
+    if (!container) return;
+    const slideWidth = container.clientWidth;
+    container.scrollTo({ left: current * slideWidth, behavior: "smooth" });
+  }, [current]);
 
-    // helper
-    const atEdges = () => {
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      return {
-        atStart: container.scrollLeft <= 0,
-        atEnd: container.scrollLeft >= maxScroll - 1,
-        maxScroll,
-      };
+  // Update current slide based on manual scroll (so dots follow drag/scroll)
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let rafId: number | null = null;
+
+    const onScroll = () => {
+      if (rafId !== null) return; // already scheduled
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        const slideWidth = container.clientWidth || 1;
+        const idx = Math.round(container.scrollLeft / slideWidth);
+        setCurrent((c) => (c !== idx ? idx : c));
+      });
     };
 
-    // Wheel handler attached on the section in capture so it runs BEFORE outer scroll
-    const onWheel = (e: WheelEvent) => {
-      // only run when pointer is over the section
-      if (!pointerOverRef.current) return;
-
-      // prefer vertical wheel only
-      if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
-
-      const { atStart, atEnd } = atEdges();
-
-      // allow normal vertical scrolling when trying to leave the horizontal area
-      if ((atStart && e.deltaY < 0) || (atEnd && e.deltaY > 0)) {
-        // let the outer container scroll
-        return;
-      }
-
-      // otherwise, consume the event and translate to horizontal scroll
-      e.preventDefault();
-      e.stopPropagation();
-
-      // adjust sensitivity if you want
-      const SCROLL_FACTOR = 1;
-      container.scrollBy({ left: e.deltaY * SCROLL_FACTOR, behavior: "smooth" });
-    };
-
-    // touch handling for mobile (vertical touch -> horizontal)
-    let startY = 0;
-    const onTouchStart = (e: TouchEvent) => {
-      if (e.touches.length !== 1) return;
-      startY = e.touches[0].clientY;
-    };
-    const onTouchMove = (e: TouchEvent) => {
-      if (e.touches.length !== 1) return;
-      const curY = e.touches[0].clientY;
-      const deltaY = startY - curY;
-
-      // if trying to scroll vertically primarily
-      if (Math.abs(deltaY) < 5) return;
-      const { atStart, atEnd } = atEdges();
-
-      if ((atStart && deltaY < 0) || (atEnd && deltaY > 0)) {
-        // allow native page scroll
-        return;
-      }
-
-      e.preventDefault();
-      e.stopPropagation();
-      container.scrollBy({ left: deltaY, behavior: "auto" });
-      startY = curY; // continuous movement
-    };
-
-    // pointerenter / leave to know when we should intercept
-    const onPointerEnter = () => (pointerOverRef.current = true);
-    const onPointerLeave = () => (pointerOverRef.current = false);
-
-    // IMPORTANT: add wheel listener in capture and with passive:false
-    section.addEventListener("wheel", onWheel, { capture: true, passive: false });
-    section.addEventListener("touchstart", onTouchStart, { passive: true });
-    section.addEventListener("touchmove", onTouchMove, { passive: false });
-    section.addEventListener("pointerenter", onPointerEnter);
-    section.addEventListener("pointerleave", onPointerLeave);
-
+    container.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-      section.removeEventListener("wheel", onWheel, { capture: true } as any);
-      section.removeEventListener("touchstart", onTouchStart as any);
-      section.removeEventListener("touchmove", onTouchMove as any);
-      section.removeEventListener("pointerenter", onPointerEnter);
-      section.removeEventListener("pointerleave", onPointerLeave);
+      container.removeEventListener("scroll", onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
 
+  const goPrev = () => setCurrent((c) => (c - 1 + slidesCount) % slidesCount);
+  const goNext = () => setCurrent((c) => (c + 1) % slidesCount);
+
+  // smoother programmatic scroll helper used by arrow buttons
+  const scrollToIndex = (index: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+    const slideWidth = container.clientWidth || 1;
+    const clamped = Math.max(0, Math.min(slidesCount - 1, index));
+    container.scrollTo({ left: clamped * slideWidth, behavior: "smooth" });
+    // pessimistically update state so dots and subsequent clicks align
+    setCurrent(clamped);
+  };
+
+  // no arrow helpers: rely on native scroll only
+
   return (
-    <section ref={sectionRef} className="section-snap h-screen relative">
+    <section className="section-snap h-screen relative">
       <div
         ref={containerRef}
         className="horizontal-scroll-container flex overflow-x-auto overflow-y-hidden h-full w-full snap-x snap-mandatory scroll-smooth no-scrollbar -webkit-overflow-scrolling-touch"
@@ -127,6 +90,22 @@ export default function WhatWeDo() {
           </div>
         </div>
       </div>
+
+      {/* Overlay with hint */}
+      <div className="absoluteS inset-0 pointer-events-none flex items-end justify-center pb-12 z-20 gap-2">
+        <div className="bg-black/40 text-white rounded-full px-4 py-2 flex items-center gap-3 pointer-events-auto">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5L15 12L8 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <span className="text-sm uppercase tracking-wider">Slide for more</span>
+        </div>
+        <div className="bg-black/40 text-white rounded-full px-4 py-2 text-sm tabular-nums">
+          <span aria-hidden>{current + 1}/{slidesCount}</span>
+          <span className="sr-only">Slide {current + 1} of {slidesCount}</span>
+        </div>
+      </div>
+
+      {/* counter displayed next to the hint; dots removed */}
     </section>
   );
 }
