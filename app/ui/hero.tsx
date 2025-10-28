@@ -89,7 +89,7 @@ export default function Hero({ slides, title, tip, description}: HeroSliderProps
       </div>
       
       {/* Content overlay - outside of slides loop so it persists */}
-      <div className="tap absolute top-0 left-0 right-0 w-[100%] px-[5%] mx-auto h-full py-10 z-10 flex flex-col justify-between items-start">
+      <div className="tap absolute top-0 left-0 right-0 w-[100%] px-[5%] mx-auto h-full py-15 z-10 flex flex-col justify-between items-start">
         <FullNav />
         <div className='hidden lg:block'>
           <Link href="/">

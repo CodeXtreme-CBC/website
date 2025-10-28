@@ -1,134 +1,251 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 export default function WhatWeDo() {
-  const sectionRef = useRef<HTMLElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const pointerOverRef = useRef(false);
+  const [current, setCurrent] = useState(0);
 
+  const slidesCount = 4;
+
+  // Scroll to active slide when current changes
   useEffect(() => {
-    const section = sectionRef.current;
     const container = containerRef.current;
-    if (!section || !container) return;
+    if (!container) return;
+    const slideWidth = container.clientWidth;
+    container.scrollTo({ left: current * slideWidth, behavior: "smooth" });
+  }, [current]);
 
-    // helper
-    const atEdges = () => {
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      return {
-        atStart: container.scrollLeft <= 0,
-        atEnd: container.scrollLeft >= maxScroll - 1,
-        maxScroll,
-      };
+  // Update current slide based on manual scroll (so dots follow drag/scroll)
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let rafId: number | null = null;
+
+    const onScroll = () => {
+      if (rafId !== null) return; // already scheduled
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        const slideWidth = container.clientWidth || 1;
+        const idx = Math.round(container.scrollLeft / slideWidth);
+        setCurrent((c) => (c !== idx ? idx : c));
+      });
     };
 
-    // Wheel handler attached on the section in capture so it runs BEFORE outer scroll
-    const onWheel = (e: WheelEvent) => {
-      // only run when pointer is over the section
-      if (!pointerOverRef.current) return;
-
-      // prefer vertical wheel only
-      if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
-
-      const { atStart, atEnd } = atEdges();
-
-      // allow normal vertical scrolling when trying to leave the horizontal area
-      if ((atStart && e.deltaY < 0) || (atEnd && e.deltaY > 0)) {
-        // let the outer container scroll
-        return;
-      }
-
-      // otherwise, consume the event and translate to horizontal scroll
-      e.preventDefault();
-      e.stopPropagation();
-
-      // adjust sensitivity if you want
-      const SCROLL_FACTOR = 1;
-      container.scrollBy({ left: e.deltaY * SCROLL_FACTOR, behavior: "smooth" });
-    };
-
-    // touch handling for mobile (vertical touch -> horizontal)
-    let startY = 0;
-    const onTouchStart = (e: TouchEvent) => {
-      if (e.touches.length !== 1) return;
-      startY = e.touches[0].clientY;
-    };
-    const onTouchMove = (e: TouchEvent) => {
-      if (e.touches.length !== 1) return;
-      const curY = e.touches[0].clientY;
-      const deltaY = startY - curY;
-
-      // if trying to scroll vertically primarily
-      if (Math.abs(deltaY) < 5) return;
-      const { atStart, atEnd } = atEdges();
-
-      if ((atStart && deltaY < 0) || (atEnd && deltaY > 0)) {
-        // allow native page scroll
-        return;
-      }
-
-      e.preventDefault();
-      e.stopPropagation();
-      container.scrollBy({ left: deltaY, behavior: "auto" });
-      startY = curY; // continuous movement
-    };
-
-    // pointerenter / leave to know when we should intercept
-    const onPointerEnter = () => (pointerOverRef.current = true);
-    const onPointerLeave = () => (pointerOverRef.current = false);
-
-    // IMPORTANT: add wheel listener in capture and with passive:false
-    section.addEventListener("wheel", onWheel, { capture: true, passive: false });
-    section.addEventListener("touchstart", onTouchStart, { passive: true });
-    section.addEventListener("touchmove", onTouchMove, { passive: false });
-    section.addEventListener("pointerenter", onPointerEnter);
-    section.addEventListener("pointerleave", onPointerLeave);
-
+    container.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-      section.removeEventListener("wheel", onWheel, { capture: true } as any);
-      section.removeEventListener("touchstart", onTouchStart as any);
-      section.removeEventListener("touchmove", onTouchMove as any);
-      section.removeEventListener("pointerenter", onPointerEnter);
-      section.removeEventListener("pointerleave", onPointerLeave);
+      container.removeEventListener("scroll", onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
 
+  const goPrev = () => setCurrent((c) => (c - 1 + slidesCount) % slidesCount);
+  const goNext = () => setCurrent((c) => (c + 1) % slidesCount);
+
+  // smoother programmatic scroll helper used by arrow buttons
+  const scrollToIndex = (index: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+    const slideWidth = container.clientWidth || 1;
+    const clamped = Math.max(0, Math.min(slidesCount - 1, index));
+    container.scrollTo({ left: clamped * slideWidth, behavior: "smooth" });
+    // pessimistically update state so dots and subsequent clicks align
+    setCurrent(clamped);
+  };
+
+  // no arrow helpers: rely on native scroll only
+
   return (
-    <section ref={sectionRef} className="section-snap h-screen relative">
+    <section className="section-snap h-screen relative">
       <div
         ref={containerRef}
         className="horizontal-scroll-container flex overflow-x-auto overflow-y-hidden h-full w-full snap-x snap-mandatory scroll-smooth no-scrollbar -webkit-overflow-scrolling-touch"
       >
-        <div className="horizontal-slide flex-shrink-0 w-full h-full flex items-center justify-center snap-start bg-gradient-to-br from-blue-900 to-purple-900 text-white">
-          <div className="max-w-4xl px-6 text-center">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">Our Story</h2>
-            <p className="text-lg md:text-xl leading-relaxed">We discover and nurture early tech talent...</p>
+        <div className="horizontal-slide flex-shrink-0 w-full h-full flex flex-col items-center justify-center snap-start bg-gradient-to-br from-blue-900 to-purple-900 text-white px-[5%]">
+          <div className="max-w-4xl text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+              Africa's Premier Student Hackathon
+            </h2>
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 text-left my-10">
+              <p className="col-span-2 text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/5">
+                Flagship yearly in-person student hackathon in Africa. Bringing
+                together the brightest minds for a 4-day of learning, building
+                and sharing their passion for technology.
+              </p>
+              <p className="text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/10">
+                We are building a platform and movement based on collaboration,
+                innovation and learn-by-doing.
+              </p>
+              <p className="text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/5">
+                A place where fresh talent can learn and grow and where early
+                founders can prototype and test.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-5">
+            <Link
+              href="https://codextreme.io/hackathon"
+              className="inline-block bg-white text-blue-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            >
+              Learn More
+            </Link>
+            <Link
+              href="mailto:partnerships@codextreme.io"
+              target="_blank"
+              className="inline-block bg-white text-blue-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            >
+              Partner
+            </Link>
           </div>
         </div>
 
-        <div className="horizontal-slide flex-shrink-0 w-full h-full flex items-center justify-center snap-start bg-gradient-to-br from-indigo-900 to-violet-800 text-white">
-          <div className="max-w-4xl px-6 text-center">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">Our Mission</h2>
-            <p className="text-lg md:text-xl leading-relaxed">We help founders build and ship real products...</p>
+        <div className="horizontal-slide flex-shrink-0 w-full h-full flex flex-col items-center justify-center snap-start bg-gradient-to-br from-indigo-900 to-violet-800 text-white px-[5%]">
+          <div className="max-w-4xl text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+              CodeXtreme Ingenious
+            </h2>
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 text-left my-10">
+              <p className="col-span-2 text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/10">
+                9-month intensive technical program focused on three core
+                pillars: Build, Test and Deploy.
+              </p>
+              <p className="text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/10">
+                Top 10 teams from our flagship hackathon get to join the program
+                where they focus on building their team, product and
+                go-to-market strategy with mentorship from industry experts.
+              </p>
+              <p className="text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/5">
+                At the end of the program, teams get to demo their products to a
+                panel of investors and industry leaders for a chance to win
+                funding and other amazing prizes.
+              </p>
+              <p className="col-span-2 text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/5">
+                The Tradeshow intends spotlight teams and publicly launch these
+                products to the world.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-5">
+            <Link
+              href="https://codextreme.io/ingenious-program"
+              className="inline-block bg-white text-blue-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            >
+              Learn More
+            </Link>
+            <Link
+              href="mailto:partnerships@codextreme.io"
+              target="_blank"
+              className="inline-block bg-white text-blue-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            >
+              Partner
+            </Link>
           </div>
         </div>
 
-        <div className="horizontal-slide flex-shrink-0 w-full h-full flex items-center justify-center snap-start bg-gradient-to-br from-teal-800 to-blue-700 text-white">
-          <div className="max-w-4xl px-6 text-center">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">Our Values</h2>
-            <p className="text-lg md:text-xl leading-relaxed">Integrity, craftsmanship, and community impact...</p>
+        <div className="horizontal-slide flex-shrink-0 w-full h-full flex flex-col items-center justify-center snap-start bg-gradient-to-br from-teal-800 to-blue-700 text-white px-[5%]">
+          <div className="max-w-4xl text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+              Power of Code
+            </h2>
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 text-left my-10">
+              <p className="col-span-2 text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/10">
+                Our team sources high-value, high-impact case studies, builds
+                solutions in-house and deploys them to the world.
+              </p>
+              <p className="text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/10">
+                We empower talent to build real products and solutions that
+                shape people, communities and organizations through technology.
+              </p>
+              <p className="text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/5">
+                We work with partners to identify and deliver on their technical
+                needs directly with solutions or via access to our superior
+                talent trove.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-5">
+            <Link
+              href="https://codextreme.io/case-studies"
+              className="inline-block bg-white text-blue-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            >
+              Case Studies
+            </Link>
+            <Link
+              href="mailto:team@codextreme.io"
+              target="_blank"
+              className="inline-block bg-white text-blue-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            >
+              Join Our Team
+            </Link>
           </div>
         </div>
 
-        <div className="horizontal-slide flex-shrink-0 w-full h-full flex items-center justify-center snap-start bg-gradient-to-br from-green-800 to-cyan-700 text-white">
-          <div className="max-w-4xl px-6 text-center">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">Our Impact</h2>
-            <p className="text-lg md:text-xl leading-relaxed">Projects delivered, developers trained, communities supported...</p>
+        <div className="horizontal-slide flex-shrink-0 w-full h-full flex flex-col items-center justify-center snap-start bg-gradient-to-br from-green-800 to-cyan-700 text-white px-[5%]">
+          <div className="max-w-4xl text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">Trove</h2>
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 text-left my-10">
+              <p className="col-span-2 text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/10">
+                Discover and hire the best talent in tech using pragmatic
+                assessment metrics.
+              </p>
+              <p className="text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/10">
+                As a talent, leverage our 1-month quaterly individual technical
+                challenges to practically showcase your skills to potential
+                employers, learn and stand a chance to win amazing prizes.
+              </p>
+              <p className="text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm bg-white/5">
+                As an investor, get access to our pool of high-quality early
+                tech talent and high-performing founders building real products
+                with clear successful metrics.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-5">
+            <Link
+              href="https://trove.codextreme.io/"
+              target="_blank"
+              className="inline-block bg-white text-blue-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            >
+              Sign Up Now
+            </Link>
           </div>
         </div>
       </div>
-      <div className="absolute top-0 left-0 right-0 bottom-0">
+
+      {/* Overlay with hint */}
+      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-15 px-[5%] z-20">
         <h1>What We Do</h1>
+        <div className="flex justify-center gap-2">
+          <div className="bg-black/40 text-white rounded-full px-4 py-2 flex items-center gap-3 pointer-events-auto">
+            <svg
+              className="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 5L15 12L8 19"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span className="text-sm uppercase tracking-wider">
+              Slide for more
+            </span>
+          </div>
+          <div className="bg-black/40 text-white rounded-full px-4 py-2 text-sm tabular-nums">
+            <span aria-hidden>
+              {current + 1}/{slidesCount}
+            </span>
+            <span className="sr-only">
+              Slide {current + 1} of {slidesCount}
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );
