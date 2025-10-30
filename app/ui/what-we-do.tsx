@@ -28,7 +28,7 @@ export default function WhatWeDo() {
                 {slide.paragraphs.map((p, i) => (
                   <p
                     key={`${slide.id}-p-${i}`}
-                    className={`text-sm leading-relaxed border border-white/30 p-4 rounded-lg backdrop-blur-sm ${
+                    className={`text-sm leading-relaxed border border-white/30 p-4 backdrop-blur-sm ${
                       p.bgStrength === 10 ? "bg-white/10" : "bg-white/5"
                     } ${p.spanFull ? "md:col-span-2" : ""} ${p.hiddenOnSmall ? "hidden md:block" : ""}`}
                   >
@@ -43,7 +43,7 @@ export default function WhatWeDo() {
                   key={`${slide.id}-${action.label}`}
                   href={action.href}
                   target={action.external ? "_blank" : undefined}
-                  className={`inline-block backdrop-blur bg-black/20 font-bold py-3 rounded-lg hover:scale-105 transition-colors duration-300 ${
+                  className={`inline-block backdrop-blur bg-black/20 font-bold py-3 hover:scale-105 transition-colors duration-300 ${
                     action.className ?? "px-8"
                   }`}
                 >

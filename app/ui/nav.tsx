@@ -8,7 +8,7 @@ export function LeanNav() {
   return (
     <header>
       <nav className="hidden lg:flex flex-row justify-between items-start">
-        <ul className="flex flex-row justify-start gap-5 p-0 m-0 list-none uppercase font-[400] text-xs text-white">
+        <ul className="flex flex-row justify-start gap-5 p-0 m-0 list-none uppercase font-[400]  text-white">
           <li className='menu text-right'>
             <Link href="/hackathons">Hackathons</Link>
           </li>
@@ -17,9 +17,6 @@ export function LeanNav() {
           </li>
           <li className='menu text-right'>
             <Link target='_blank' href="https://trove.codextreme.io">Trove</Link>
-          </li>
-          <li className='menu text-right'>
-            <Link href="#contact">Contact Us</Link>
           </li>
         </ul>
       </nav>
@@ -95,9 +92,6 @@ export function FullNav() {
                   </li>
                   <li className='menu text-right'>
                     <Link target='_blank' href="https://trove.codextreme.io" onClick={closeMobileMenu}>Trove</Link>
-                  </li>
-                    <li className='menu text-right'>
-                    <Link href="#contact" onClick={closeMobileMenu}>Contact Us</Link>
                   </li>
                 </ul>
               </nav>

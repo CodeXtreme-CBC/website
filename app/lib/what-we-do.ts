@@ -14,7 +14,7 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
       },
       {
         text: "We are building a platform and movement based on collaboration, innovation and learn-by-doing.",
-        bgStrength: 10,
+        bgStrength: 5,
       },
       {
         text: "A place where fresh talent can learn and grow and where early founders can prototype and test.",
@@ -34,12 +34,12 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
       {
         text: "9-month intensive technical program focused on three core pillars: Build, Test and Deploy.",
         spanFull: true,
-        bgStrength: 10,
+        bgStrength: 5,
       },
       {
         text:
           "Top 10 teams from our flagship hackathon get to join the program where they focus on building their team, product and go-to-market strategy with mentorship from industry experts.",
-        bgStrength: 10,
+        bgStrength: 5,
       },
       {
         text:
@@ -66,12 +66,12 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
       {
         text: "We source high-value, high-impact case studies, build solutions in-house and deploys them to the world.",
         spanFull: true,
-        bgStrength: 10,
+        bgStrength: 5,
       },
       {
         text:
           "We empower talent to build real products and solutions that shape people, communities and organizations through technology.",
-        bgStrength: 10,
+        bgStrength: 5,
       },
       {
         text:
@@ -92,12 +92,12 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
       {
         text: "Discover and hire the best talent in tech using pragmatic assessment metrics.",
         spanFull: true,
-        bgStrength: 10,
+        bgStrength: 5,
       },
       {
         text:
           "As a talent, leverage our 1-month quaterly individual technical challenges to practically showcase your skills to potential employers, learn and stand a chance to win amazing prizes.",
-        bgStrength: 10,
+        bgStrength: 5,
       },
       {
         text:

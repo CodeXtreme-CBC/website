@@ -4,6 +4,7 @@ import Footer from "@/app/ui/footer";
 import { heroSlides } from "@/app/lib/data";
 import WhatWeDo from "@/app/ui/what-we-do";
 import Gallery from "@/app/ui/gallery";
+import Press from "@/app/ui/press";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       />
       <WhatWeDo />
       <Gallery />
+      <Press />
       <Footer />
     </main>
   );

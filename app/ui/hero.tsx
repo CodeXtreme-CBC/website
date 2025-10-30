@@ -105,7 +105,7 @@ export default function Hero({ slides, title, tip, description}: HeroSliderProps
         <div>
           {tip && <p className="text-left tip text-sm font-bold w-full uppercase mb-2">{tip}</p>}
           {title && <h1 className="text-left text-white uppercase text-4xl p-0 m-0 w-[100%]">{title}</h1>}
-          {description && <div className="text-white font-light text-xs w-[100%] text-left pt-2 space-y-1" dangerouslySetInnerHTML={{ __html: description }} />}
+          {description && <div className="hidden md:block text-white font-light text-sm w-[100%] text-left pt-2 space-y-1" dangerouslySetInnerHTML={{ __html: description }} />}
           <CTA />
           <LeanNav />
         </div>
