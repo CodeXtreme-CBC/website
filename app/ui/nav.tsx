@@ -10,19 +10,13 @@ export function LeanNav() {
       <nav className="hidden lg:flex flex-row justify-between items-start">
         <ul className="flex flex-row justify-start gap-5 p-0 m-0 list-none uppercase font-[400] text-xs text-white">
           <li className='menu text-right'>
-            <Link href="/power-of-code">Power of Code</Link>
+            <Link href="/hackathons">Hackathons</Link>
           </li>
           <li className='menu text-right'>
-            <Link target='_blank' href="/hackathons">Hackathons</Link>
+            <Link href="/ingenious-program">Ingenious</Link>
           </li>
           <li className='menu text-right'>
-            <Link href="/ingenious">Ingenious</Link>
-          </li>
-          <li className='menu text-right'>
-            <Link href="https://trove.codextreme.io">Trove</Link>
-          </li>
-          <li className='menu text-right'>
-            <Link href="https://app.codextreme.io">Platform</Link>
+            <Link target='_blank' href="https://trove.codextreme.io">Trove</Link>
           </li>
           <li className='menu text-right'>
             <Link href="#contact">Contact Us</Link>
@@ -94,22 +88,16 @@ export function FullNav() {
               <nav className="mt-12">
                 <ul className="space-y-6 text-sm uppercase text-white">
                   <li className='menu text-right'>
-                    <Link href="/power-of-code" onClick={closeMobileMenu}>Power of Code</Link>
-                  </li>
-                  <li className='menu text-right'>
                     <Link href="/hackathons" onClick={closeMobileMenu}>Hackathons</Link>
                   </li>
                   <li className='menu text-right'>
-                    <Link href="/ingenious" onClick={closeMobileMenu}>Ingenious</Link>
+                    <Link href="/ingenious-program" onClick={closeMobileMenu}>Ingenious</Link>
                   </li>
                   <li className='menu text-right'>
-                    <Link href="https://trove.codextreme.io" onClick={closeMobileMenu}>Trove</Link>
-                  </li>
-                  <li className='menu text-right'>
-                    <Link href="https://app.codextreme.io" onClick={closeMobileMenu}>Platform</Link>
+                    <Link target='_blank' href="https://trove.codextreme.io" onClick={closeMobileMenu}>Trove</Link>
                   </li>
                     <li className='menu text-right'>
-                    <Link href="/contact" onClick={closeMobileMenu}>Contact Us</Link>
+                    <Link href="#contact" onClick={closeMobileMenu}>Contact Us</Link>
                   </li>
                 </ul>
               </nav>
