@@ -2,33 +2,33 @@ import { Slide } from '@/app/lib/types';
 
 export const heroSlides: Slide[] = [
   {
-    id: 'the-landscape1',
-    imageSrc: "https://test-pull-store.b-cdn.net/file-0.jpg",
+    id: 'hero-image-1',
+    imageSrc: "https://test-pull-store.b-cdn.net/hero-image-1.avif",
     mediaType: 'image',
   },
   {
-    id: 'the-landscape3',
-    imageSrc: "https://test-pull-store.b-cdn.net/file-2.jpg",
+    id: 'hero-image-2',
+    imageSrc: "https://test-pull-store.b-cdn.net/hero-image-2.avif",
     mediaType: 'image',
   },
   {
-    id: 'the-landscape4',
-    imageSrc: "https://test-pull-store.b-cdn.net/file-3.jpg",
+    id: 'hero-image-3',
+    imageSrc: "https://test-pull-store.b-cdn.net/hero-image-3.avif",
     mediaType: 'image',
   },
   {
-    id: 'the-landscape5',
-    imageSrc: "https://test-pull-store.b-cdn.net/file-4.jpg",
+    id: 'hero-image-4',
+    imageSrc: "https://test-pull-store.b-cdn.net/hero-image-4.avif",
     mediaType: 'image',
   },
   {
-    id: 'the-landscape7',
-    imageSrc: "https://test-pull-store.b-cdn.net/file-6.jpg",
+    id: 'hero-image-5',
+    imageSrc: "https://test-pull-store.b-cdn.net/hero-image-5.avif",
     mediaType: 'image',
   },
   {
-    id: 'the-landscape8',
-    imageSrc: "https://test-pull-store.b-cdn.net/file-7.jpg",
+    id: 'hero-image-6',
+    imageSrc: "https://test-pull-store.b-cdn.net/hero-image-6.avif",
     mediaType: 'image',
   },
 ];

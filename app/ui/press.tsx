@@ -1,5 +1,5 @@
 import { fetchOpenGraph } from "@/app/lib/og";
-import PressCard from "@/app/ui/press-card";
+import PressList from "@/app/ui/press-list";
 
 const PRESS_ITEMS = [
   "https://www.newtimes.co.rw/article/24579/news/featured/featured-codextreme-hackathon-ends-with-tight-contest-winners-take-home-5000",
@@ -15,17 +15,7 @@ export default async function Press() {
   return (
     <section className="section-snap h-screen flex items-center justify-center bg-gray-100 text-black w-full py-30">
       <div className="px-[5%] w-full">
-        <div
-          className="grid w-full h-full gap-6"
-          style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            alignItems: "stretch",
-          }}
-        >
-          {data.map((d) => (
-            <PressCard key={d.url} data={d} />
-          ))}
-        </div>
+        <PressList items={data} />
       </div>
 
       <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-16 px-[5%] z-20">
