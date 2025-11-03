@@ -78,7 +78,7 @@ export default function Gallery() {
   return (
     <section className="section-snap relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 text-gray-900">
       <div
-        className="grid w-full h-full py-30 gap-3 mx-[5%] overflow-auto no-scrollbar overscroll-contain touch-pan-y"
+        className="grid w-full h-full py-30 gap-3 mx-[5%] overflow-auto no-scrollbar overscroll-auto touch-pan-y"
         style={{
           gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
           alignItems: "stretch",
