@@ -43,7 +43,7 @@ export default function WhatWeDo() {
                   key={`${slide.id}-${action.label}`}
                   href={action.href}
                   target={action.external ? "_blank" : undefined}
-                  className={`inline-block backdrop-blur bg-black/20 font-bold py-2 md:py-3 hover:scale-105 transition-colors duration-300 ${
+                  className={`text-sm md:text-base inline-block backdrop-blur bg-black/20 font-bold py-2 md:py-3 hover:scale-105 transition-colors duration-300 ${
                     action.className ?? "px-8"
                   }`}
                 >
