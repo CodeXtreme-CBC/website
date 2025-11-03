@@ -18,7 +18,7 @@ export default async function Press() {
         <PressList items={data} />
       </div>
 
-      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-16 px-[5%] z-20">
+      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-10 md:py-15 px-[5%] z-20">
         <h1>Press</h1>
       </div>
     </section>

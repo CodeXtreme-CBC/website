@@ -114,7 +114,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-15 px-[5%] z-20">
+      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-10 md:py-15 px-[5%] z-20">
         <div>
           <h1 className="mb-2">CodeXtreme</h1>
           <p className="text-sm">Building Things People Need.</p>
