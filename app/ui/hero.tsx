@@ -95,9 +95,9 @@ export default function Hero({ slides, title, tip, description}: HeroSliderProps
           <Link href="/">
             <Image 
               src="/images/codextreme-logo.svg"
-              width={250}
-              height={60} 
-              alt="Peak Hill Logo" 
+              width={300}
+              height={80} 
+              alt="CodeXtreme Logo" 
               priority
             />
           </Link>

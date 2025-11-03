@@ -23,8 +23,8 @@ export default function WhatWeDo() {
             className={`horizontal-slide flex-shrink-0 w-full h-full flex flex-col items-center justify-center snap-start ${slide.gradientClass} text-white px-[5%]`}
           >
             <div className="max-w-4xl text-center">
-              <h2 className="text-2xl md:text-6xl font-bold mb-4">{slide.title}</h2>
-              <div className="grid md:grid-cols-2 grid-cols-1 gap-4 text-left my-10">
+              <h2 className="text-xl md:text-6xl font-bold mb-2 md:mb-4">{slide.title}</h2>
+              <div className="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-4 text-left my-5 md:my-10">
                 {slide.paragraphs.map((p, i) => (
                   <p
                     key={`${slide.id}-p-${i}`}
@@ -43,7 +43,7 @@ export default function WhatWeDo() {
                   key={`${slide.id}-${action.label}`}
                   href={action.href}
                   target={action.external ? "_blank" : undefined}
-                  className={`inline-block backdrop-blur bg-black/20 font-bold py-3 hover:scale-105 transition-colors duration-300 ${
+                  className={`inline-block backdrop-blur bg-black/20 font-bold py-2 md:py-3 hover:scale-105 transition-colors duration-300 ${
                     action.className ?? "px-8"
                   }`}
                 >
