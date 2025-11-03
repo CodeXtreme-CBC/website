@@ -26,14 +26,14 @@ export default function PressCard({ data }: PressCardProps) {
           )}
           <span className="uppercase tracking-wide">{hostname}</span>
         </div>
-        <h3 className="text-xl md:text-3xl font-bold mb-2 text-black">
+        <h3 className="text-lg md:text-3xl font-bold mb-2 text-black">
           {data.title ?? url.pathname}
         </h3>
         <div className="mt-6">
           <Link
             href={data.url}
             target="_blank"
-            className="inline-block border bg-black/40 backdrop-blur-md text-white px-6 py-3 font-semibold hover:scale-105 transition-transform"
+            className="inline-block text-sm md:text-base border bg-black/40 backdrop-blur-md text-white px-6 py-3 font-semibold hover:scale-105 transition-transform"
           >
             Read Article
           </Link>

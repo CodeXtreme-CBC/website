@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="section-snap h-screen flex items-center justify-center bg-black text-white w-full">
       <div className="px-[5%] w-full md:max-w-4xl">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mb-5 md:mb-12">
           <div>
             <h3 className="text-sm font-bold mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-300 md:text-sm text-xs">
