@@ -17,7 +17,7 @@ export default function PressList({ items }: PressListProps) {
   return (
     <div className="w-full">
       {/* Mobile: horizontal slider */}
-      <div className="md:hidden relative">
+      <div className="md:hidden relative mt-10">
         <div
           ref={containerRef}
           className="horizontal-scroll-container flex gap-10 overflow-x-auto overflow-y-hidden w-full snap-x snap-mandatory scroll-smooth no-scrollbar -webkit-overflow-scrolling-touch"
@@ -30,7 +30,7 @@ export default function PressList({ items }: PressListProps) {
         </div>
         <ArrowButton direction="prev" onClick={goToPrevious} />
         <ArrowButton direction="next" onClick={goToNext} />
-        <div className="mt-3 md:mt-5 flex justify-center">
+        <div className="mt-2 md:mt-5 flex justify-center">
           <div className="backdrop-blur-sm bg-black/20 text-white rounded-full px-4 py-1 text-sm tabular-nums">
             <span aria-hidden>
               {current + 1}/{slidesCount}

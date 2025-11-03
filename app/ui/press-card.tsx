@@ -33,7 +33,7 @@ export default function PressCard({ data }: PressCardProps) {
           <Link
             href={data.url}
             target="_blank"
-            className="inline-block text-sm md:text-base border bg-black/40 backdrop-blur-md text-white px-6 py-3 font-semibold hover:scale-105 transition-transform"
+            className="inline-block text-sm md:text-base border bg-black/40 backdrop-blur-md text-white px-6 py-2 md:py-3 font-semibold hover:scale-105 transition-transform"
           >
             Read Article
           </Link>
