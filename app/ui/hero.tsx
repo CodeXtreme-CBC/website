@@ -89,7 +89,7 @@ export default function Hero({ slides, title, tip, description}: HeroSliderProps
       </div>
       
       {/* Content overlay - outside of slides loop so it persists */}
-      <div className="tap absolute top-0 left-0 right-0 w-[100%] px-[5%] mx-auto h-full py-15 z-10 flex flex-col justify-between items-start">
+      <div className="tap absolute top-0 left-0 right-0 w-[100%] px-[5%] mx-auto h-full py-5 md:py-15 z-10 flex flex-col justify-between items-start">
         <FullNav />
         <div className='hidden lg:block'>
           <Link href="/">
@@ -104,7 +104,7 @@ export default function Hero({ slides, title, tip, description}: HeroSliderProps
         </div>
         <div>
           {tip && <p className="text-left tip text-sm font-bold w-full uppercase mb-2">{tip}</p>}
-          {title && <h1 className="text-left text-white uppercase text-4xl p-0 m-0 w-[100%]">{title}</h1>}
+          {title && <h1 className="text-left text-white uppercase text-2xl md:text-4xl p-0 m-0 w-[100%]">{title}</h1>}
           {description && <div className="hidden md:block text-white font-light text-sm w-[100%] text-left pt-2 space-y-1" dangerouslySetInnerHTML={{ __html: description }} />}
           <CTA />
           <LeanNav />

@@ -58,7 +58,7 @@ export default function WhatWeDo() {
       <ArrowButton direction="prev" onClick={goToPrevious} />
       <ArrowButton direction="next" onClick={goToNext} />
 
-      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-15 px-[5%] z-20">
+      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-10 md:py-15 px-[5%] z-20">
         <h1>What We Do</h1>
         <div className="flex justify-center gap-2">
           <div className="backdrop-blur bg-black/20 text-white rounded-full px-4 py-2 flex items-center gap-3 pointer-events-auto">
