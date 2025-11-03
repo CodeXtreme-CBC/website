@@ -30,7 +30,7 @@ export default function PressList({ items }: PressListProps) {
         </div>
         <ArrowButton direction="prev" onClick={goToPrevious} />
         <ArrowButton direction="next" onClick={goToNext} />
-        <div className="mt-5 flex justify-center">
+        <div className="mt-3 md:mt-5 flex justify-center">
           <div className="backdrop-blur-sm bg-black/20 text-white rounded-full px-4 py-1 text-sm tabular-nums">
             <span aria-hidden>
               {current + 1}/{slidesCount}
