@@ -31,7 +31,6 @@ body {
 
 body, p, a, li {
   font-family: var(--font-euclid), 'Euclid Circular A', sans-serif;
-  letter-spacing: 1px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -133,6 +132,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Hero Section Custom Animations */
+/* Sponsors Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@media (hover: hover) {
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -178,7 +198,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero p {
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 }
 
 .hero-container {

@@ -13,7 +13,7 @@ export function LeanNav() {
             <Link href="/hackathons">Hackathons</Link>
           </li>
           <li className="menu text-right">
-            <Link href="/ingenious-program">Ingenious</Link>
+            <Link target="_blank" href="https://app.codextreme.io/ingenious">Ingenious</Link>
           </li>
           <li className="menu text-right">
             <Link target="_blank" href="https://trove.codextreme.io">

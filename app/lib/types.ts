@@ -1,8 +1,20 @@
+export interface SlideAction {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
 export interface Slide {
   id: string;
   imageSrc?: string;
   videoSrc?: string;
   mediaType?: 'image' | 'video';
+  // Optional per-slide content. If provided, the Hero can render these
+  // instead of the static title/tip/description props.
+  title?: string;
+  tip?: string;
+  description?: string; // can be plain text or HTML; Hero treats it like the prop
+  actions?: SlideAction[]; // optional per-slide CTAs
 }
 
 export interface ParagraphSpec {

@@ -6,15 +6,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FullNav, LeanNav } from '@/app/ui/nav';
 import CTA from '@/app/ui/cta';
+import HackathonSponsors from '@/app/ui/hackathon-sponsors';
 
-interface HeroSliderProps {
+interface HeroProps {
   slides: Slide[];
-  title: string;
-  tip: string;
+  title?: string;
+  tip?: string;
   description?: string;
+  showSponsors?: boolean; // when true, render HackathonSponsors inside overlay
 }
 
-export default function Hero({ slides, title, tip, description}: HeroSliderProps) {
+export default function Hero({ slides, title, tip, description, showSponsors }: HeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -26,7 +28,7 @@ export default function Hero({ slides, title, tip, description}: HeroSliderProps
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, slides.length]);
 
   return (
     <section className="hero relative section-snap h-[100vh]">
@@ -103,10 +105,50 @@ export default function Hero({ slides, title, tip, description}: HeroSliderProps
           </Link>
         </div>
         <div>
-          {tip && <p className="text-left tip text-sm font-bold w-full uppercase mb-2">{tip}</p>}
-          {title && <h1 className="text-left text-white uppercase text-2xl md:text-4xl p-0 m-0 w-[100%]">{title}</h1>}
-          {description && <div className="hidden md:block text-white font-light text-sm w-[100%] text-left pt-2 space-y-1" dangerouslySetInnerHTML={{ __html: description }} />}
-          <CTA />
+          {(() => {
+            // Prefer per-slide content if present; fall back to static props
+            const active = slides[currentSlide];
+            const effTip = active?.tip ?? tip;
+            const effTitle = active?.title ?? title;
+            const effDesc = active?.description ?? description;
+            const effActions = active?.actions;
+
+            return (
+              <>
+                {effTip && (
+                  <p className="text-left tip text-sm font-bold w-full uppercase mb-2">{effTip}</p>
+                )}
+                {effTitle && (
+                  <h1 className="text-left text-white uppercase text-2xl md:text-4xl p-0 m-0 w-[100%]">
+                    {effTitle}
+                  </h1>
+                )}
+                {effDesc && (
+                  <p
+                    className="hidden md:block text-white font-light text-sm w-[100%] text-left pt-2 space-y-1"
+                    dangerouslySetInnerHTML={{ __html: effDesc }}
+                  />
+                )}
+                {/* Per-slide CTAs if provided; else default CTA component below */}
+                {Array.isArray(effActions) && effActions.length > 0 ? (
+                  <div className="flex flex-col md:flex-row gap-3 md:gap-5 text-sm mt-5 mb-5 md:mb-10 text-white">
+                    {effActions.map((a) => (
+                      <div key={`${currentSlide}-${a.label}`}>
+                        <Link href={a.href} target={a.external ? "_blank" : undefined}>
+                          <p className="tracking-normal inline-block bg-white/10 backdrop-blur-lg font-bold py-4 px-4 md:px-8 hover:scale-105 transition-transform duration-300 text-center w-full md:min-w-fit">
+                            {a.label}
+                          </p>
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </>
+            );
+          })()}
+          {/* Show default CTA only when slide doesn't override actions */}
+          {!(slides[currentSlide]?.actions && slides[currentSlide]!.actions!.length > 0) && <CTA />}
+          {showSponsors && <HackathonSponsors />}
           <LeanNav />
         </div>
       </div>

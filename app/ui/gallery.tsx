@@ -72,6 +72,22 @@ const galleryItems: GalleryItem[] = [
     id: "image-16",
     imageSrc: "https://test-pull-store.b-cdn.net/image-16.avif",
   },
+  {
+    id: "image-17",
+    imageSrc: "https://test-pull-store.b-cdn.net/image-17.avif",
+  },
+  {
+    id: "image-18",
+    imageSrc: "https://test-pull-store.b-cdn.net/image-18.avif",
+  },
+  {
+    id: "image-19",
+    imageSrc: "https://test-pull-store.b-cdn.net/image-19.avif",
+  },
+  {
+    id: "image-20",
+    imageSrc: "https://test-pull-store.b-cdn.net/image-20.avif",
+  },
 ];
 
 export default function Gallery() {
@@ -99,7 +115,9 @@ export default function Gallery() {
         ))}
       </div>
       <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-10 md:py-15 px-[5%] z-20">
-        <div className="text-white bg-black/40 backdrop-blur-sm w-fit py-2 px-4 rounded-full"><h1>Gallery</h1></div>
+        <div className="text-white bg-black/40 backdrop-blur-sm w-fit py-2 px-4 rounded-full">
+          <h1>Gallery</h1>
+        </div>
       </div>
     </section>
   );
