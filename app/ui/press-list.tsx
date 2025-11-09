@@ -15,7 +15,7 @@ export default function PressList({ items }: PressListProps) {
   const { containerRef, current, goToNext, goToPrevious } = useHorizontalCarousel(slidesCount);
 
   return (
-    <div className="w-full">
+    <div className="px-[5%] w-full">
       {/* Mobile: horizontal slider */}
       <div className="md:hidden relative mt-10">
         <div
@@ -42,7 +42,7 @@ export default function PressList({ items }: PressListProps) {
 
       {/* Desktop: grid */}
       <div
-        className="hidden md:grid w-full h-full gap-6"
+        className="hidden md:grid w-full h-[90%] gap-6"
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", alignItems: "stretch" }}
       >
         {items.map((d) => (

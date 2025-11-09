@@ -13,14 +13,14 @@ export default async function Press() {
   );
 
   return (
-    <section className="section-snap h-screen flex items-center justify-center bg-gray-100 text-black w-full py-30">
-      <div className="px-[5%] w-full">
+    <section className="section-snap h-screen flex items-center justify-center bg-gray-100 text-black w-full">
+      {/* <div className="px-[5%] w-full"> */}
         <PressList items={data} />
-      </div>
+      {/* </div> */}
 
-      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-10 md:py-15 px-[5%] z-20">
+      {/* <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-10 md:py-15 px-[5%] z-20">
         <h1>Press</h1>
-      </div>
+      </div> */}
     </section>
   );
 }

@@ -22,7 +22,7 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
       },
     ],
     actions: [
-      { label: "Learn More", href: "/hackathon" },
+      { label: "Learn More", href: "/hackathons" },
       { label: "Partner", href: "mailto:partnerships@codextreme.io", external: true },
     ],
   },
@@ -43,13 +43,7 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
       },
       {
         text:
-          "At the end of the program, teams get to demo their products to a panel of investors and industry leaders for a chance to get funded.",
-        bgStrength: 5,
-      },
-      {
-        text: "The Tradeshow intends to spotlight teams and publicly launch products to the world.",
-        hiddenOnSmall: true,
-        spanFull: true,
+          "At the end of the program, during the Tradeshow, teams get to demo their products to a panel of investors and industry leaders for a chance to get funded.",
         bgStrength: 5,
       },
     ],

@@ -26,7 +26,7 @@ export default function PressCard({ data }: PressCardProps) {
           )}
           <span className="uppercase tracking-wide">{hostname}</span>
         </div>
-        <h3 className="text-lg md:text-3xl font-bold mb-2 text-black">
+        <h3 className="text-lg md:text-xl font-bold mb-2 text-black">
           {data.title ?? url.pathname}
         </h3>
         <div className="mt-6">

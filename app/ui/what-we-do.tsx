@@ -23,7 +23,7 @@ export default function WhatWeDo() {
             className={`horizontal-slide flex-shrink-0 w-full h-full flex flex-col items-center justify-center snap-start ${slide.gradientClass} text-white px-[5%]`}
           >
             <div className="max-w-4xl text-center">
-              <h2 className="text-xl md:text-6xl font-bold mb-2 md:mb-4">{slide.title}</h2>
+              <h2 className="text-xl md:text-4xl font-bold mb-2 md:mb-4">{slide.title}</h2>
               <div className="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-4 text-left my-5 md:my-10">
                 {slide.paragraphs.map((p, i) => (
                   <p
@@ -59,7 +59,7 @@ export default function WhatWeDo() {
       <ArrowButton direction="next" onClick={goToNext} />
 
       <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-10 md:py-15 px-[5%] z-20">
-        <h1>What We Do</h1>
+        <h1 className="text-white">What We Do</h1>
         <div className="flex justify-center gap-2">
           <div className="backdrop-blur bg-black/20 text-white rounded-full px-4 py-2 flex items-center gap-3 pointer-events-auto">
             <svg
