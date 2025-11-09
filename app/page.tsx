@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Engineer, innovator, and craftsman working at the intersection of technology, business, and education in Africa.",
   metadataBase: new URL("https://www.codextreme.io"),
   openGraph: {
-    title: "CodeXtreme — Building Things People Need",
+    title: "CodeXtreme — Discover and Nurture Talent. Build Products. Power Communities",
     description:
       "We discover and nurture early tech talent and founders, helping them build and ship real products to the world.",
     url: "https://www.codextreme.io",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CodeXtreme — Discover and Nurture Talent. Build Products. Power Communities",
     description:
-      "We discover and nurture early tech talent and founders, helping them build and ship real products to the world..",
+      "We discover and nurture early tech talent and founders, helping them build and ship real products to the world.",
     images: ["https://www.codextreme.io/images/logo-bg-lg.png"],
     creator: "@CodeXtreme",
   },
