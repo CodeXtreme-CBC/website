@@ -104,7 +104,7 @@ export default function Hero({ slides, title, tip, description, showSponsors }: 
             />
           </Link>
         </div>
-        <div>
+        <div className='mb-10'>
           {(() => {
             // Prefer per-slide content if present; fall back to static props
             const active = slides[currentSlide];
