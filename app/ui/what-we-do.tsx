@@ -12,7 +12,7 @@ export default function WhatWeDo() {
     useHorizontalCarousel(slidesCount);
 
   return (
-    <section className="section-snap h-screen relative">
+    <section className="section-snap h-[100dvh] relative">
       <div
         ref={containerRef}
         className="horizontal-scroll-container flex overflow-x-auto overflow-y-hidden h-full w-full snap-x snap-mandatory scroll-smooth no-scrollbar -webkit-overflow-scrolling-touch"
@@ -20,7 +20,7 @@ export default function WhatWeDo() {
         {whatWeDoSlides.map((slide, idx) => (
           <div
             key={slide.id}
-            className={`horizontal-slide flex-shrink-0 w-full h-full flex flex-col items-center justify-center snap-start ${slide.gradientClass} text-white px-[5%] pb-20 md:pb-0`}
+            className={`horizontal-slide flex-shrink-0 w-full h-full flex flex-col items-center justify-center snap-start ${slide.gradientClass} text-white px-[5%]`}
           >
             <div className="max-w-4xl text-center">
               <h2 className="text-xl md:text-4xl font-bold mb-2 md:mb-4">{slide.title}</h2>
@@ -60,7 +60,7 @@ export default function WhatWeDo() {
 
       <div className="absolute inset-0 pointer-events-none flex flex-col justify-between py-10 md:py-15 px-[5%] z-20">
         <h1 className="text-white">What We Do</h1>
-        <div className="flex justify-center gap-2 mb-20 md:mb-0">
+        <div className="flex justify-center gap-2">
           <div className="backdrop-blur bg-black/20 text-white rounded-full px-4 py-2 flex items-center gap-3 pointer-events-auto">
             <svg
               className="w-4 h-4"
