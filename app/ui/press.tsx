@@ -13,7 +13,7 @@ export default async function Press() {
   );
 
   return (
-    <section className="section-snap h-screen bg-gray-100 text-black w-full relative">
+    <section className="section-snap h-[100dvh] bg-gray-100 text-black w-full relative">
       <div className="w-full h-full">
         <PressList items={data} />
       </div>
