@@ -50,9 +50,9 @@ const getLogoSize = (id: string) => {
 
 export default function HackathonSponsors() {
   return (
-    <div className="relative w-full my-5">
+    <div className="relative w-full mt-5">
       <p className="text-xs mb-2">Previous Sponsors</p>
-      <div className="flex items-center gap-8 md:gap-12 overflow-x-auto no-scrollbar pb-2">
+      <div className="flex items-center gap-8 md:gap-12 overflow-x-auto no-scrollbar">
         {sponsorListItems.map((item) => {
           const { width, height } = getLogoSize(item.id);
           const logo = (
