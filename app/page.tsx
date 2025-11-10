@@ -59,7 +59,6 @@ export const metadata: Metadata = {
   authors: [{ name: "CodeXtreme", url: "https://www.codextreme.io" }],
   creator: "CodeXtreme",
   publisher: "Cedric Murairi",
-  themeColor: "#ffffff",
 };
 
 export default function Home() {
