@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 interface SponsorListItem {
   id: string;
@@ -56,17 +57,17 @@ export default function HackathonSponsors() {
         {sponsorListItems.map((item) => {
           const { width, height } = getLogoSize(item.id);
           const logo = (
-            <Image
+            <img
               src={item.imageSrc}
               alt={item.id}
               width={width}
               height={height}
               className="block object-contain flex-shrink-0"
-              priority={false}
+              loading="lazy"
             />
           );
           return item.href ? (
-            <a
+            <Link
               key={item.id}
               href={item.href}
               target="_blank"
@@ -75,7 +76,7 @@ export default function HackathonSponsors() {
               className="flex-shrink-0"
             >
               {logo}
-            </a>
+            </Link>
           ) : (
             <div key={item.id} className="flex-shrink-0">
               {logo}
