@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "We discover and nurture early tech talent and founders, helping them build and ship real products to the world.",
     url: "https://www.codextreme.io",
-    siteName: "Cedric Murairi",
+    siteName: "CodeXtreme",
     images: [
       {
         url: "https://www.codextreme.io/images/logo-bg-lg.png",
