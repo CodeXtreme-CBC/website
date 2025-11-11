@@ -92,7 +92,7 @@ const galleryItems: GalleryItem[] = [
 
 export default function Gallery() {
   return (
-    <section className="section-snap relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 text-gray-900">
+    <section className="section-snap relative h-[100dvh] flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 text-gray-900">
       <div
         className="grid w-full h-full py-30 gap-3 mx-[5%] overflow-auto no-scrollbar overscroll-auto touch-pan-y"
         style={{
