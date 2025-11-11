@@ -172,7 +172,7 @@ export function CompleteNavDark() {
           </Link>
         </div>
         <nav className="hidden lg:flex flex-row justify-between items-start">
-          <ul className="flex flex-row justify-start gap-5 p-0 m-0 list-none uppercase font-[400] text-gray-900">
+          <ul className="flex flex-row justify-start gap-5 p-0 m-0 list-none uppercase font-[400] text-black">
             <li className="menu text-right">
               <Link href="/hackathons">Hackathons</Link>
             </li>

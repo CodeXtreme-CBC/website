@@ -38,14 +38,14 @@ export const hackathonPageSlides: Slide[] = [
     id: "hackathon-hero-1",
     imageSrc: "https://test-pull-store.b-cdn.net/hackathons-hero-1.avif",
     mediaType: "image",
-    title: "2026 Codextreme Hackathons Is Around The Corner",
+    title: "2026 Codextreme Hackathon Is Around The Corner",
     tip: "Join us for our next hackathon",
     description:
       "Compete for 4 days, learn from the best minds in the industry, showcase your skills, Win Prizes.",
     actions: [
       {
-        label: "Register Now",
-        href: "https://app.codextreme.io/hackathons",
+        label: "Registrations Open Soon",
+        href: "",
       },
       {
         label: "Become A Sponsor",

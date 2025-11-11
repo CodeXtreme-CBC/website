@@ -32,7 +32,7 @@ export default function PressList({ items }: PressListProps) {
 
       {/* Desktop: grid */}
       <div
-        className="md:grid hidden w-full h-full px-[5%] py-30 gap-6 overflow-auto no-scrollbar overscroll-auto touch-pan-y place-content-start place-items-center"
+        className="md:grid hidden w-full h-full px-[5%] pb-30 pt-35 gap-6 overflow-auto no-scrollbar overscroll-auto touch-pan-y place-content-start place-items-center"
         style={{
           gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
           gridAutoRows: "min-content",

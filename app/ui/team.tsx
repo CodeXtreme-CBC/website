@@ -55,7 +55,7 @@ const teamMembers: TeamMember[] = [
 
 export default function Team() {
   return (
-    <section className="section-snap relative h-[100dvh]">
+    <section id="team" className="section-snap relative h-[100dvh]">
       <div
         style={{
           gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",

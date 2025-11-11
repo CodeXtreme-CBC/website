@@ -47,6 +47,17 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 10%, rgba(243, 234, 225, 0) 100%);
 }
 
+.better-align li {
+  display: flex;
+  align-items: flex-start;
+}
+
+.better-align li::before {
+  content: "•";
+  margin-right: 0.5rem;
+  line-height: 1.4;
+}
+
 /* Scroll Snap Container */
 .scroll-container {
   height: 100vh;

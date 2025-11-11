@@ -46,7 +46,7 @@ export default function About() {
           <p>
             Right now, we are focusing our efforts on:
           </p>
-          <ul className="list-disc list-inside space-y-2 pl-5 md:pl-10">
+          <ul className="list-disc list-inside space-y-2 pl-5 md:pl-10 better-align">
             <li>
               Secure funding to launch CodeXtreme Ingenious [A 1-year program
               designed to discover, inspire, nurtured and activate early tech talent and support early founders

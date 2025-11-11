@@ -85,7 +85,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/ingenious-program" className="hover:text-white transition-colors">
+                <a href="https://app.codextreme.io/ingenious" className="hover:text-white transition-colors">
                   Ingenious Program
                 </a>
               </li>
