@@ -13,11 +13,11 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
         bgStrength: 5,
       },
       {
-        text: "We are building a platform and movement based on creativity, collaboration, innovation and learn-by-doing.",
+        text: "We are building a platform and movement based on creativity, collaboration, innovation, learn-by-doing, and real-world problem solving to bridge the gap between theoretical knowledge and practical application.",
         bgStrength: 5,
       },
       {
-        text: "A place where fresh talent can discover their potential, get inspired and activated to learn and grow and where early founders can prototype and test.",
+        text: "A place where fresh talent can discover their potential, get inspired and activated to learn and grow; a place where early founders can prototype and test.",
         bgStrength: 5,
       },
     ],

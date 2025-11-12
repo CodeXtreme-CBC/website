@@ -33,8 +33,8 @@ export default function About() {
           </p>
           <p>
             With our hackathons, CodeXtreme Ingenious, workshops, and community events, we aim to
-            <strong> discover, inspire, nurture, activate, and accelerate</strong> the next generation of tech innovators and contribute to the
-            broader tech ecosystem by nurturing talent and fostering a culture
+            <strong> discover, inspire, activate, nurture, and accelerate</strong> the next generation of tech innovators and contribute to the
+            broader tech ecosystem by fostering a culture
             of continuous learning and building through our core tenet: <strong>&quot;Build
             things people need: high-value, high-impact tech solutions to shape
             communities.&quot;</strong>
