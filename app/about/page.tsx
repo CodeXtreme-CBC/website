@@ -26,7 +26,7 @@ export default function About() {
           <p>
             Over time, CodeXtreme has evolved into a vibrant community of
             developers, designers, early founders, and tech enthusiasts who share a common goal:
-            <strong> "To push the boundaries of technology and build things people need." </strong>
+            <strong> &quot;To push the boundaries of technology and build things people need.&quot; </strong>
             We believe in the power of technology to transform lives and are
             committed to keep providing more opportunities for growth, learning, and
             collaboration.
@@ -35,9 +35,9 @@ export default function About() {
             With our hackathons, CodeXtreme Ingenious, workshops, and community events, we aim to
             <strong> discover, inspire, nurture, activate, and accelerate</strong> the next generation of tech innovators and contribute to the
             broader tech ecosystem by nurturing talent and fostering a culture
-            of continuous learning and building through our core tenet: <strong>"Build
+            of continuous learning and building through our core tenet: <strong>&quot;Build
             things people need: high-value, high-impact tech solutions to shape
-            communities."</strong>
+            communities.&quot;</strong>
           </p>
           <p>
             We have seen great progress since our initial hackathon in 2024 and
