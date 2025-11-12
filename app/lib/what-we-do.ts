@@ -13,11 +13,11 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
         bgStrength: 5,
       },
       {
-        text: "We are building a platform and movement based on collaboration, innovation and learn-by-doing.",
+        text: "We are building a platform and movement based on creativity, collaboration, innovation and learn-by-doing.",
         bgStrength: 5,
       },
       {
-        text: "A place where fresh talent can learn and grow and where early founders can prototype and test.",
+        text: "A place where fresh talent can discover their potential, get inspired and activated to learn and grow and where early founders can prototype and test.",
         bgStrength: 5,
       },
     ],
@@ -32,18 +32,18 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
     gradientClass: "bg-gradient-to-br from-indigo-900 to-violet-800",
     paragraphs: [
       {
-        text: "9-month intensive technical program focused on three core pillars: Build, Test and Deploy.",
+        text: "A 1-Year intensive technical program focused on three core pillars: Build, Test and Deploy and our guiding principle DIANA (Discover, Inspire, Activate, Nurture, and Accelerate). A journey from discovery to impact.",
         spanFull: true,
         bgStrength: 5,
       },
       {
         text:
-          "Top 10 teams from our flagship hackathon get to join the program where they focus on building their team, product and go-to-market strategy with mentorship from industry experts.",
+          "Top 10 teams from our flagship hackathon join the program to focus on building their team, product and go-to-market strategy with mentorship from industry experts.",
         bgStrength: 5,
       },
       {
         text:
-          "At the end of the program, during the Tradeshow, teams get to demo their products to a panel of investors and industry leaders for a chance to get funded.",
+          "At the end of the program, during the Tradeshow, teams demo their products to a panel of investors, press and industry leaders to get funded and accelerated.",
         bgStrength: 5,
       },
     ],
@@ -84,7 +84,7 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
     gradientClass: "bg-gradient-to-br from-green-800 to-cyan-700",
     paragraphs: [
       {
-        text: "Discover and hire the best talent in tech using pragmatic assessment metrics.",
+        text: "As an employer, discover and hire the best talent in tech using pragmatic assessment metrics.",
         spanFull: true,
         bgStrength: 5,
       },
