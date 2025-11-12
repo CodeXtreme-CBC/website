@@ -28,7 +28,7 @@ export default function WhatWeDo() {
                 {slide.paragraphs.map((p, i) => (
                   <p
                     key={`${slide.id}-p-${i}`}
-                    className={`text-xs md:text-sm leading-relaxed border border-white/30 p-4 backdrop-blur-sm ${
+                    className={`text-xs md:text-sm leading-relaxed border border-white/30 p-2 md:p-4 backdrop-blur-sm ${
                       p.bgStrength === 10 ? "bg-white/10" : "bg-white/5"
                     } ${p.spanFull ? "md:col-span-2" : ""} ${p.hiddenOnSmall ? "hidden md:block" : ""}`}
                   >
