@@ -67,8 +67,7 @@ export default function Home() {
       <Hero
         slides={heroSlides}
         title="Discover and nurture talent. Build products. Power communities."
-        description="<p>We discover and nurture early tech talent and founders, helping them build and ship real products to the world.</p>
-        <p>Through <strong>Power of Code</strong>, we develop high-impact tech solutions for people and communities across Africa.</p>"
+        description="<p>We Discover, Inspire, Activate, Nurture, and Accelerate early tech talents and tech founders to build the next generation of world-class tech companies that will drive impact on the African continent.</p>"
         tip="Why We Exist"
       />
       <WhatWeDo />

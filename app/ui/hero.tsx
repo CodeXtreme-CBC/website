@@ -125,7 +125,7 @@ export default function Hero({ slides, title, tip, description, showSponsors }: 
                 )}
                 {effDesc && (
                   <p
-                    className="hidden md:block text-white font-light text-sm w-[100%] text-left pt-2 space-y-1"
+                    className="block text-white font-light text-sm w-[100%] text-left pt-2 space-y-1"
                     dangerouslySetInnerHTML={{ __html: effDesc }}
                   />
                 )}

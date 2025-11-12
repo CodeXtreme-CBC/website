@@ -41,7 +41,7 @@ export const hackathonPageSlides: Slide[] = [
     title: "2026 Codextreme Hackathon Is Around The Corner",
     tip: "Join us for our next hackathon",
     description:
-      "Compete for 4 days, learn from the best minds in the industry, showcase your skills, Win Prizes.",
+      "Compete for 4 days, learn from the best minds in the industry, showcase your skills, win prizes.",
     actions: [
       {
         label: "Registrations Open Soon",
@@ -72,39 +72,6 @@ export const hackathonPageSlides: Slide[] = [
         label: "Learn More About Ingenious",
         href: "https://app.codextreme.io/ingenious",
         external: true,
-      },
-    ],
-  },
-];
-
-export const ingeniousProgramSlides: Slide[] = [
-  {
-    id: "ingenious-hero-1",
-    imageSrc: "https://test-pull-store.b-cdn.net/ingenious-hero-1.avif",
-    mediaType: "image",
-    title: "Join The Ingenious Program",
-    tip: "Empowering Young Innovators",
-    description:
-      "A year-long program designed to nurture and support young tech enthusiasts in building impactful projects.",
-    actions: [
-      {
-        label: "Apply Now",
-        href: "/ingenious-program",
-      },
-    ],
-  },
-  {
-    id: "ingenious-hero-2",
-    imageSrc: "https://test-pull-store.b-cdn.net/ingenious-hero-2.avif",
-    mediaType: "image",
-    title: "Build Things People Need",
-    tip: "Empowering Young Innovators",
-    description:
-      "A year-long program designed to nurture and support young tech enthusiasts in building impactful projects.",
-    actions: [
-      {
-        label: "Apply Now",
-        href: "/ingenious-program",
       },
     ],
   },
