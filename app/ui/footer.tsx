@@ -70,13 +70,8 @@ export default function Footer() {
             <h3 className="text-sm font-bold mb-4">Resources</h3>
             <ul className="space-y-2 text-gray-300 md:text-sm text-xs">
               <li>
-                <a href="https://trove.codextreme.io/" className="hover:text-white transition-colors">
-                  Trove
-                </a>
-              </li>
-              <li>
                 <a href="https://app.codextreme.io/" className="hover:text-white transition-colors">
-                  Platform
+                  Trove
                 </a>
               </li>
               <li>

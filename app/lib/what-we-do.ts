@@ -48,7 +48,7 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
       },
     ],
     actions: [
-      { label: "Learn More", href: "/ingenious-program" },
+      { label: "Learn More", href: "https://app.codextreme.io/ingenious" },
       { label: "Partner", href: "mailto:partnerships@codextreme.io", external: true },
     ],
   },
@@ -100,7 +100,7 @@ export const whatWeDoSlides: WhatWeDoSlideSpec[] = [
       },
     ],
     actions: [
-      { label: "Sign Up Now", href: "https://trove.codextreme.io/", external: true },
+      { label: "Sign Up Now", href: "https://app.codextreme.io/", external: true },
     ],
   },
 ];

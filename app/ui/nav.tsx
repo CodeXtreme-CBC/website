@@ -18,7 +18,7 @@ export function LeanNav() {
             </Link>
           </li>
           <li className="menu text-right">
-            <Link target="_blank" href="https://trove.codextreme.io">
+            <Link target="_blank" href="https://app.codextreme.io">
               Trove
             </Link>
           </li>
@@ -113,14 +113,14 @@ export function FullNav() {
                     </Link>
                   </li>
                   <li className="menu text-right">
-                    <Link href="/ingenious-program" onClick={closeMobileMenu}>
+                    <Link href="https://app.codextreme.io/ingenious" onClick={closeMobileMenu}>
                       Ingenious
                     </Link>
                   </li>
                   <li className="menu text-right">
                     <Link
                       target="_blank"
-                      href="https://trove.codextreme.io"
+                      href="https://app.codextreme.io"
                       onClick={closeMobileMenu}
                     >
                       Trove
@@ -248,7 +248,7 @@ export function CompleteNavDark() {
                     </Link>
                   </li>
                   <li className="menu text-right">
-                    <Link href="/ingenious-program" onClick={closeMobileMenu}>
+                    <Link href="https://app.codextreme.io/ingenious" onClick={closeMobileMenu}>
                       Ingenious
                     </Link>
                   </li>
