@@ -113,7 +113,7 @@ export function FullNav() {
                     </Link>
                   </li>
                   <li className="menu text-right">
-                    <Link href="https://app.codextreme.io/ingenious" onClick={closeMobileMenu}>
+                    <Link target="_blank" href="https://app.codextreme.io/ingenious" onClick={closeMobileMenu}>
                       Ingenious
                     </Link>
                   </li>
@@ -248,7 +248,7 @@ export function CompleteNavDark() {
                     </Link>
                   </li>
                   <li className="menu text-right">
-                    <Link href="https://app.codextreme.io/ingenious" onClick={closeMobileMenu}>
+                    <Link target="_blank" href="https://app.codextreme.io/ingenious" onClick={closeMobileMenu}>
                       Ingenious
                     </Link>
                   </li>
